@@ -8,11 +8,6 @@ variable "department_id" {
     type        = string
 }
 
-variable "icto" {
-    description = "ICTO of the application"
-    type        = string
-}
-
 variable "name" {
     description = "friendly name of the project"
     type        = string
