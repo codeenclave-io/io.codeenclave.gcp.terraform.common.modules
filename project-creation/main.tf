@@ -5,7 +5,7 @@ resource "random_string" "random" {
 
 locals {
     project_id = format("%s-%s-%s-%s", var.environment_type, var.region, var.data_classification, lower(random_string.random.result))
-    service_account_id = format("service-account-%s", local.project_id, lower(random_string.random.result))
+    service_account_id = format("service-account-%s", lower(random_string.random.result))
 }
 
 resource "google_folder" "department" {
