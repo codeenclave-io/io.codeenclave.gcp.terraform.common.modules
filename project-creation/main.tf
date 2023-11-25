@@ -5,7 +5,7 @@ resource "random_string" "random" {
 
 locals {
     project_id = format("%s-%s-%s-%s", var.environment_type, var.region, var.data_classification, lower(random_string.random.result))
-    service_account_id = format("%s-sa-%s", local.project_id, lower(random_string.random.result))
+    service_account_id = format("service-account-%s", local.project_id, lower(random_string.random.result))
 }
 
 resource "google_folder" "department" {
@@ -19,7 +19,6 @@ resource "google_project" "project" {
     folder_id   = google_folder.department.name
     # probably should use labels to identify the various types of environments
     # e.g., 
-    # "icto": "1234567"
     # "component": "result-store"
     # "environment-type": "prod/uat/dev"
     # "data-classification": "c1/c2/c3/c4"
